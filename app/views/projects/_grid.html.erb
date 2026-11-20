@@ -1,0 +1,14 @@
+<% if projects.any? %>
+  <ul class="project-grid">
+    <% projects.each do |project| %>
+      <li class="project-card">
+        <%# TODO: stage thumbnail %>
+        <div class="project-thumb"></div>
+        <%= link_to project.name, user_project_path(project.owner, project) %>
+        <span class="meta">by <%= project.owner.username %> &middot; <%= project.editor.titleize %></span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="empty">No projects yet.</p>
+<% end %>

@@ -1,4 +1,34 @@
-# README
+# NostalgiaKit
+
+A forge for Scratch and Snap! projects, with the feel of a mid-2000s software
+forge. Projects are Git repositories, remixes come back as merge proposals,
+and every project gets a bug tracker and blueprints. It federates over
+ActivityPub, with ForgeFed planned.
+
+Early scaffolding: most pages are placeholders. See `docs/roadmap.md`.
+
+## Running it
+
+```sh
+bundle install
+bin/rails db:prepare
+bin/dev
+```
+
+Rugged builds libgit2 from source on install, which needs CMake and pkg-config.
+The editors are built separately with `bin/editors` (not implemented yet; see
+`editors/README.md`).
+
+## Docs
+
+- `docs/architecture.md`: how the pieces fit
+- `docs/federation.md`: ActivityPub and ForgeFed plans
+- `docs/roadmap.md`: what is done and what is next
+- `AGENTS.md`: rules for coding agents
+
+## License
+
+AGPL-3.0-only. See `LICENSE`.
 
 ## Configuration
 

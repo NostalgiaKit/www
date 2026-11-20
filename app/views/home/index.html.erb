@@ -1,0 +1,10 @@
+<% content_for :sidebar do %>
+  <div class="portlet">
+    <h2>What is NostalgiaKit?</h2>
+    <p>A forge for Scratch and Snap! projects: real Git history, remixes as merge
+      proposals, bug trackers and blueprints, federated with the fediverse.</p>
+  </div>
+<% end %>
+
+<h1>Recently updated projects</h1>
+<%= render "projects/grid", projects: @recent_projects %>

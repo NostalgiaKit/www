@@ -1,0 +1,7 @@
+stuck_in_wall:
+  project: platformer
+  author: bob
+  number: 1
+  title: Player gets stuck in walls
+  status: confirmed
+  importance: high

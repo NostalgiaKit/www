@@ -1,14 +1,37 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # ActivityPub (phase 1): actors, inboxes, outboxes and WebFinger.
+  mount Federails::Engine => "/"
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root "home#index"
+  get "explore" => "projects#index", as: :explore
+
+  resources :forum_topics, path: "forums", only: %i[index show]
+
+  # Git over HTTP for `git clone` and `git lfs pull`. Kept apart from the HTML
+  # routes so the ".git" suffix never collides with a project page.
+  scope "/~:user_username/:project_slug.git", format: false, as: :git do
+    # TODO: smart HTTP (info/refs, git-upload-pack) on top of Rugged.
+    post "info/lfs/objects/batch" => "lfs/batch#create", as: :lfs_batch
+    get  "info/lfs/objects/:oid" => "lfs/objects#show", as: :lfs_object
+    put  "info/lfs/objects/:oid" => "lfs/objects#update"
+  end
+
+  # Launchpad-style URLs: /~username/project/+bugs/12
+  scope "/~:user_username", as: :user do
+    get "/" => "users#show"
+
+    resources :projects, path: "", param: :slug, only: %i[show] do
+      get "editor" => "editors#show"
+      get "export.sb3" => "exports#show", format: false, as: :export
+      get "commits" => "commits#index"
+      get "commits/:sha" => "commits#show", as: :commit
+      get "tree(/*path)" => "trees#show", as: :tree, format: false
+
+      resources :pull_requests, path: "+merges", only: %i[index show]
+      resources :issues, path: "+bugs", param: :number, only: %i[index show]
+      resources :blueprints, path: "+specs", param: :name, only: %i[index show]
+    end
+  end
 end

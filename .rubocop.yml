@@ -1,6 +1,12 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
+AllCops:
+  Exclude:
+    # Copied from engines by their install tasks; keep them as upstream wrote them.
+    - "db/migrate/*.federails.rb"
+    - "db/migrate/*.active_storage.rb"
+
 # Overwrite or add rules to create your own house style
 #
 # # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`

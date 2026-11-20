@@ -40,6 +40,15 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# Native Git (libgit2) for project repositories, without shelling out to git [https://github.com/libgit2/rugged]
+gem "rugged", "~> 1.9"
+
+# ActivityPub federation (phase 1; ForgeFed builds on its actors in phase 2) [https://gitlab.com/experimentslabs/federails]
+gem "federails", "~> 0.8"
+
+# Reading and writing .sb3 archives
+gem "rubyzip", "~> 3.7"
+
 group :development, :test do
   # Load ENV vars from .env files in development and test [https://github.com/bkeepers/dotenv]
   gem "dotenv"

@@ -1,0 +1,19 @@
+platformer:
+  owner: alice
+  name: Platformer
+  slug: platformer
+  editor: scratch
+  description: A small platformer.
+
+platformer_remix:
+  owner: bob
+  name: Platformer (remix)
+  slug: platformer-remix
+  editor: scratch
+  forked_from: platformer
+
+snap_lists:
+  owner: alice
+  name: List Tricks
+  slug: list-tricks
+  editor: snap
