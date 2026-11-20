@@ -1,0 +1,9 @@
+double_jump:
+  project: platformer
+  author: bob
+  source_project: platformer_remix
+  source_branch: double-jump
+  target_branch: main
+  title: Add a double jump
+  body: Press up twice.
+  state: open

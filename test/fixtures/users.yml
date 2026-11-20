@@ -1,0 +1,8 @@
+alice:
+  username: alice
+  display_name: Alice
+  bio: Makes platformers.
+
+bob:
+  username: bob
+  display_name: Bob

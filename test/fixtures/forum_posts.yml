@@ -1,0 +1,4 @@
+welcome_first:
+  forum_topic: welcome
+  author: alice
+  body_bbcode: "[b]Hello[/b] <script>alert(1)</script>"

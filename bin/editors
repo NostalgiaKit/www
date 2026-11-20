@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Builds the block editors under editors/ and copies their static output into
+# public/editors/<name>/. See editors/README.md.
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+echo "bin/editors: not implemented yet." >&2
+echo "  TODO: git submodule update --init editors/scratch editors/snap" >&2
+echo "  TODO: build editors/scratch (TurboWarp fork) into public/editors/scratch" >&2
+echo "  TODO: copy editors/snap into public/editors/snap" >&2
+exit 1

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= [ content_for(:title), "NostalgiaKit" ].compact.join(" : ") %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="application-name" content="NostalgiaKit">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <%= stylesheet_link_tag :app %>
+    <%# The web shell is server-rendered with no JavaScript. Only layouts/editor loads any. %>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <%= link_to "NostalgiaKit", root_path, class: "topbar-logo" %>
+        <nav class="topbar-nav">
+          <%= link_to explore_path do %><%= tango_icon "system-search" %> Explore<% end %>
+          <%= link_to forum_topics_path do %><%= tango_icon "internet-group-chat" %> Forums<% end %>
+        </nav>
+        <div class="topbar-account">
+          <%# TODO: sign in / account menu %>
+        </div>
+      </div>
+    </header>
+
+    <div class="page">
+      <%# Nested layouts (layouts/project) fill :content instead of the plain yield. %>
+      <% body = content_for?(:content) ? yield(:content) : yield %>
+      <% if content_for?(:sidebar) %>
+        <div class="two-column">
+          <main class="main-column"><%= body %></main>
+          <aside class="side-column"><%= yield :sidebar %></aside>
+        </div>
+      <% else %>
+        <main><%= body %></main>
+      <% end %>
+    </div>
+
+    <footer class="footer">
+      <%# TODO: about, terms, source code, federation status %>
+      NostalgiaKit
+    </footer>
+  </body>
+</html>

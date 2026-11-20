@@ -1,0 +1,8 @@
+level_editor:
+  project: platformer
+  author: alice
+  name: level-editor
+  title: In-game level editor
+  summary: Let players build and share levels.
+  definition_status: drafting
+  implementation_status: not_started
