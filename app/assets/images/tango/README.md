@@ -7,5 +7,9 @@ in the public domain. Use the freedesktop icon names, for example
 - `16x16/` for inline text, lists and table rows.
 - `22x22/` for toolbars, headings and the BBCode editor buttons.
 
-Not vendored yet. Until they are, `tango_icon` renders an empty box of the right size.
+Only a subset of the set is vendored: icons a forge is unlikely to need (weather,
+printers, batteries, desktop preferences, office documents and so on) were left out.
+If you need one that is missing, copy it in from the Tango release at both sizes.
+Put it straight in the size folder (`16x16/folder.png`), not in a category folder
+like `places/`, because `tango_icon` only looks one level down.
 PNGs here go through Git LFS (see `.gitattributes`).

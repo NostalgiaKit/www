@@ -4,7 +4,7 @@ module ApplicationHelper
   def tango_icon(name, size: 16, alt: "")
     image_tag("tango/#{size}x#{size}/#{name}.png", alt: alt, width: size, height: size, class: "tango-icon")
   rescue Propshaft::MissingAssetError
-    # Icons are not vendored yet; keep pages rendering without them.
+    # Keeps pages rendering when the icons are not there.
     tag.span(class: "tango-icon tango-icon-missing", style: "width:#{size}px;height:#{size}px")
   end
 end

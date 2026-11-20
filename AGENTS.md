@@ -38,7 +38,7 @@ Details in `docs/architecture.md`, `docs/federation.md` and `docs/roadmap.md`.
 - `app/controllers/`: thin controllers. `ProjectScoped` loads `@owner` and `@project` for every `/~:user_username/:project_slug` route. `Lfs::` controllers serve the Git LFS API under `/~user/project.git/info/lfs/`.
 - `app/views/layouts/`: `application` (the shell), `project` (nested inside it for project pages), `editor` (the only page with JavaScript, inside its frame).
 - `app/assets/stylesheets/application.css`: design tokens and all styles. Use the CSS variables at the top instead of new hard-coded colors.
-- `app/assets/images/tango/`: Tango icons by freedesktop name, through `tango_icon` in `ApplicationHelper`. Not vendored yet.
+- `app/assets/images/tango/`: Tango icons by freedesktop name, through `tango_icon` in `ApplicationHelper`. A trimmed subset is vendored; see its `README.md`.
 - `editors/`: the block editors, built by `bin/editors` into `public/editors/` (git ignores the output).
 - `docs/`: architecture, federation and roadmap.
 
