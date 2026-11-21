@@ -1,8 +1,16 @@
 <% content_for :title, "Forums" %>
+
 <h1>Forums</h1>
+
 <%# TODO: categories %>
 <table class="listing">
-  <thead><tr><th>Topic</th><th>Started by</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Started by</th>
+    </tr>
+  </thead>
+
   <tbody>
     <% @topics.each do |topic| %>
       <tr>

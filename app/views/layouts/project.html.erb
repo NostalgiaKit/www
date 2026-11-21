@@ -4,21 +4,40 @@
 <% content_for :sidebar do %>
   <div class="portlet">
     <h2>Get this project</h2>
+
     <ul class="icon-list">
-      <li><%= link_to user_project_editor_path(@owner, @project) do %><%= tango_icon "applications-graphics" %> Open in editor<% end %></li>
+      <li>
+        <%= link_to user_project_editor_path(@owner, @project) do %>
+          <%= tango_icon "applications-graphics" %> Open in editor
+        <% end %>
+      </li>
+
       <% if @project.scratch? %>
-        <li><%= link_to user_project_export_path(@owner, @project) do %><%= tango_icon "document-save" %> Download .sb3<% end %></li>
+        <li>
+          <%= link_to user_project_export_path(@owner, @project) do %>
+            <%= tango_icon "document-save" %> Download .sb3
+          <% end %>
+        </li>
       <% end %>
-      <li><%= tango_icon "utilities-terminal" %> <code>git clone <%= request.base_url %>/~<%= @owner.username %>/<%= @project.slug %>.git</code></li>
+
+      <li>
+        <%= tango_icon "utilities-terminal" %>
+        <code>git clone <%= request.base_url %>/~<%= @owner.username %>/<%= @project.slug %>.git</code>
+      </li>
     </ul>
   </div>
+
   <%= yield :project_sidebar %>
 <% end %>
 
 <% content_for :content do %>
   <div class="project-header">
-    <p class="breadcrumbs"><%= link_to @owner.display_name.presence || @owner.username, user_path(@owner) %></p>
+    <p class="breadcrumbs">
+      <%= link_to @owner.display_name.presence || @owner.username, user_path(@owner) %>
+    </p>
+
     <h1><%= @project.name %></h1>
+
     <nav class="tabs">
       <%= link_to "Overview", user_project_path(@owner, @project) %>
       <%= link_to "Code", user_project_tree_path(@owner, @project) %>
@@ -28,6 +47,7 @@
       <%= link_to "Blueprints", user_project_blueprints_path(@owner, @project) %>
     </nav>
   </div>
+
   <%= yield %>
 <% end %>
 

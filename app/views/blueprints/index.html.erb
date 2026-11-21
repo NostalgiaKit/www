@@ -1,10 +1,21 @@
 <h2>Blueprints</h2>
+
 <table class="listing">
-  <thead><tr><th>Blueprint</th><th>Definition</th><th>Implementation</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Blueprint</th>
+      <th>Definition</th>
+      <th>Implementation</th>
+    </tr>
+  </thead>
+
   <tbody>
     <% @blueprints.each do |bp| %>
       <tr>
-        <td><%= link_to bp.title, user_project_blueprint_path(@owner, @project, bp) %></td>
+        <td>
+          <%= link_to bp.title, user_project_blueprint_path(@owner, @project, bp) %>
+        </td>
+
         <td><%= bp.definition_status.titleize %></td>
         <td><%= bp.implementation_status.titleize %></td>
       </tr>

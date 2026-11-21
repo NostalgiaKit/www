@@ -1,0 +1,16 @@
+# Herb settings for the template linter and formatter.
+# Docs: https://herb-tools.dev/configuration
+
+# Rules added in newer Herb releases stay off until this is bumped.
+version: 0.11.2
+
+framework: actionview
+
+linter:
+  enabled: true
+
+formatter:
+  enabled: true
+  indentWidth: 2
+  indentStyle: space
+  maxLineLength: 80

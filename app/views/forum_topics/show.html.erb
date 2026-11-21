@@ -1,8 +1,14 @@
 <% content_for :title, @topic.title %>
+
 <h1><%= @topic.title %></h1>
+
 <% @posts.each do |post| %>
   <article class="forum-post">
-    <header><%= post.author.username %> &middot; <%= l post.created_at, format: :long %></header>
+    <header>
+      <%= post.author.username %> &middot;
+      <%= l post.created_at, format: :long %>
+    </header>
+
     <div class="forum-post-body"><%= post.body_html %></div>
   </article>
 <% end %>

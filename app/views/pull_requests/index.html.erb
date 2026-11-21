@@ -1,10 +1,21 @@
 <h2>Merge proposals</h2>
+
 <table class="listing">
-  <thead><tr><th>Title</th><th>From</th><th>Status</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>From</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
   <tbody>
     <% @pull_requests.each do |pr| %>
       <tr>
-        <td><%= link_to pr.title, user_project_pull_request_path(@owner, @project, pr) %></td>
+        <td>
+          <%= link_to pr.title, user_project_pull_request_path(@owner, @project, pr) %>
+        </td>
+
         <td><%= pr.source_project.owner.username %>:<%= pr.source_branch %></td>
         <td><%= pr.state.titleize %></td>
       </tr>

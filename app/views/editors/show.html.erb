@@ -2,6 +2,9 @@
 <div class="editor-bar">
   <%= link_to "Back to #{@project.name}", user_project_path(@owner, @project) %>
 </div>
-<iframe class="editor-frame"
-        src="<%= @project.scratch? ? "/editors/scratch/index.html" : "/editors/snap/snap.html" %>"
-        title="<%= @project.editor.titleize %> editor"></iframe>
+
+<iframe
+  class="editor-frame"
+  src="<%= @project.scratch? ? "/editors/scratch/index.html" : "/editors/snap/snap.html" %>"
+  title="<%= @project.editor.titleize %> editor"
+></iframe>

@@ -1,13 +1,27 @@
 <h2>Bugs</h2>
+
 <table class="listing">
-  <thead><tr><th>#</th><th>Summary</th><th>Importance</th><th>Status</th></tr></thead>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Summary</th>
+      <th>Importance</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
         <td><%= issue.number %></td>
-        <td><%= link_to issue.title, user_project_issue_path(@owner, @project, issue) %></td>
-        <td class="importance-<%= issue.importance %>"><%= issue.importance.titleize %></td>
-        <td class="status-<%= issue.status %>"><%= issue.status.titleize %></td>
+
+        <td>
+          <%= link_to issue.title, user_project_issue_path(@owner, @project, issue) %>
+        </td>
+
+        <%= tag.td issue.importance.titleize, class: "importance-#{issue.importance}" %>
+
+        <%= tag.td issue.status.titleize, class: "status-#{issue.status}" %>
       </tr>
     <% end %>
   </tbody>

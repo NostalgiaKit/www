@@ -76,3 +76,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "herb", "~> 0.11.2", group: :development
+gem "rubocop-erb", "~> 0.8.2", group: :development

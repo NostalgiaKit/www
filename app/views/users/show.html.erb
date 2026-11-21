@@ -1,7 +1,9 @@
 <% content_for :title, @user.display_name.presence || @user.username %>
+
 <% content_for :sidebar do %>
   <div class="portlet">
     <h2>Fediverse</h2>
+
     <%# TODO: Follow button and the @username@host handle once User is a federails actor %>
     <p>@<%= @user.username %>@<%= request.host %></p>
   </div>

@@ -143,6 +143,13 @@ GEM
       raabro (~> 1.4)
     globalid (1.4.0)
       activesupport (>= 6.1)
+    herb (0.11.2-aarch64-linux-gnu)
+    herb (0.11.2-aarch64-linux-musl)
+    herb (0.11.2-arm-linux-gnu)
+    herb (0.11.2-arm-linux-musl)
+    herb (0.11.2-arm64-darwin)
+    herb (0.11.2-x86_64-linux-gnu)
+    herb (0.11.2-x86_64-linux-musl)
     htmlentities (4.4.2)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
@@ -352,6 +359,10 @@ GEM
       parser (>= 3.3.7.2)
       prism (>= 1.7)
       racc
+    rubocop-erb (0.8.2)
+      herb (~> 0.9, >= 0.9.3)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.84)
     rubocop-performance (1.27.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.89.0, < 2.0)
@@ -459,6 +470,7 @@ DEPENDENCIES
   debug
   dotenv
   federails (~> 0.8)
+  herb (~> 0.11.2)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
@@ -466,6 +478,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.4, >= 8.1.4.1)
+  rubocop-erb (~> 0.8.2)
   rubocop-rails-omakase
   rubyzip (~> 3.7)
   rugged (~> 1.9)
@@ -529,6 +542,13 @@ CHECKSUMS
   ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
   fugit (1.14.0) sha256=e311a9cc85a54bb67649df45060e721282a1e2c8ebad40e41874a3a7d576f37e
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
+  herb (0.11.2-aarch64-linux-gnu) sha256=b8015cba548ff79f04c69dd9ccf92a8dc8900fca8a0fc23b000f92fdf7219842
+  herb (0.11.2-aarch64-linux-musl) sha256=0b41e988a6c81cb05cacfb3a5444d729fb1c41970bfe594fbdc91319376ce8cc
+  herb (0.11.2-arm-linux-gnu) sha256=f7f7d1ecf69670a39911b7d159705e55d2f0f9f3e935cf27f29a02e4723a6445
+  herb (0.11.2-arm-linux-musl) sha256=677d0e8676f96448c4e0a82da6e772c90f6de43e48ef13987f57518472d69568
+  herb (0.11.2-arm64-darwin) sha256=7a5e23818c3f784690384fc111eae50d6993723eb0c172a8a72d0be167281d78
+  herb (0.11.2-x86_64-linux-gnu) sha256=2627fe909e7e6b0548926573d87a2e12b6d65bc85964832d34abf5ba165bfc37
+  herb (0.11.2-x86_64-linux-musl) sha256=aa6e7aa38d44de757d3076e331234f55ed2f392c2bd0203a3aa4ceea0b6bdd3e
   htmlentities (4.4.2) sha256=bbafbdf69f2eca9262be4efef7e43e6a1de54c95eb600f26984f71d2fe96c5c3
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   image_processing (1.14.0) sha256=754cc169c9c262980889bec6bfd325ed1dafad34f85242b5a07b60af004742fb
@@ -610,6 +630,7 @@ CHECKSUMS
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
   rubocop (1.92.3) sha256=fd77feac46e8e91c3a534f868a1702c59f5bf8173515fd00a3c6ce1198672ff6
   rubocop-ast (1.53.0) sha256=027984d28485d6502ae4c72f9341080f54f538599f5dbb54f81875a4ddcad574
+  rubocop-erb (0.8.2) sha256=180e2881587e42a61b18b1b0a644bef5cc30bcf5e0e7846b88db2da86ec2cc11
   rubocop-performance (1.27.0) sha256=eeeb1374d062a368ee1c787b70eb0b0cc4b184cb1f8565f424760946146d61ce
   rubocop-rails (2.38.0) sha256=6e2b7c532efa95e3050371bec20b8f5b025662acead8bc70ee31f0e3e6fa2f06
   rubocop-rails-omakase (1.1.0) sha256=2af73ac8ee5852de2919abbd2618af9c15c19b512c4cfc1f9a5d3b6ef009109d

@@ -1,8 +1,10 @@
 <div class="summary"><%= simple_format @project.description %></div>
 
 <% if @project.forked_from %>
-  <p><%= tango_icon "edit-copy" %> Remixed from
-    <%= link_to @project.forked_from.name, user_project_path(@project.forked_from.owner, @project.forked_from) %></p>
+  <p>
+    <%= tango_icon "edit-copy" %> Remixed from
+    <%= link_to @project.forked_from.name, user_project_path(@project.forked_from.owner, @project.forked_from) %>
+  </p>
 <% end %>
 
 <%# TODO: stage preview, latest commits, open merges and bugs %>

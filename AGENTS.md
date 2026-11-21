@@ -89,6 +89,17 @@ Always lint:
 - `bin/brakeman` must report no warnings.
 - CI runs both, plus the tests.
 
+### ERB and HTML formatting
+
+Templates are formatted with [Herb](https://herb-tools.dev) (the `herb` gem, development group). Herb picks up every `*.html.erb` under `app/views/` and the static pages in `public/*.html`. Its settings live in `.herb.yml`: `framework: actionview` turns on the Rails rules, the formatter uses 2-space indents and an 80-column limit, and `version` pins the rule set so a Herb upgrade doesn't switch on new rules until someone bumps it. `bundle exec herb config .` lists the files it covers.
+
+- `bundle exec herb format` rewrites templates in place. `bundle exec herb format --check` only reports. The Ruby gem hands both off to the `@herb-tools/formatter` npm package through `npx`, so Node.js has to be installed (no `package.json` is needed).
+- `bundle exec herb lint` runs the template linter (`@herb-tools/linter`). It currently reports nothing at all; keep it that way. Only errors fail it, but fix warnings and info notes too.
+- Render partials by their full path (`render "projects/grid"`, not `render "grid"`), as the `actionview-prefer-qualified-partial-path` rule asks.
+- Its `erb-no-interpolated-class-names` and `erb-prefer-direct-output` rules together rule out both `class="status-<%= x %>"` and `class="<%= "status-#{x}" %>"`. When a class name is built from a value, write the element with the `tag` helper instead, for example `<%= tag.td label, class: "status-#{x}" %>`.
+- Format any template you add or touch before committing, and keep the result as Herb writes it: one attribute per line once a tag gets long, wrapped paragraph text, and a blank line between sibling blocks. Don't hand-edit it back into a different shape.
+- The `rubocop-erb` gem is in the Gemfile too, but `.rubocop.yml` does not load it yet, so `bin/rubocop` does not check Ruby inside templates. Neither `bin/ci` nor the GitHub workflow runs Herb. Wiring those in is the human's call.
+
 Use modern code practices:
 
 - Latest Ruby and Rails (see `.ruby-version` and the Gemfile). Use current Ruby features such as endless methods and `Data.define` where they read well.
