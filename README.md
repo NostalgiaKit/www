@@ -1,5 +1,12 @@
 # NostalgiaKit
 
+<p align="center">
+<img
+src="https://raw.githubusercontent.com/NostalgiaKit/www/refs/heads/main/app/assets/images/tango/custom/package-x-blocks.svg"
+width=300
+alt="NostalgiaKit logo, a box full of blocks" />
+</p>
+
 A forge for Scratch and Snap! projects, with the feel of a mid-2000s software
 forge. Projects are Git repositories, remixes come back as merge proposals,
 and every project gets a bug tracker and blueprints. It federates over
