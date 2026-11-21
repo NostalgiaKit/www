@@ -6,7 +6,7 @@ Check items off where they are. Do not move them to another section.
 
 - [x] Layouts, stylesheet tokens and placeholder pages
 - [ ] Accounts and sign-in
-- [ ] Vendor the Tango icons
+- [x] Vendor the Tango icons
 - [ ] BBCode parser and forum reply form with a toolbar
 - [ ] Project thumbnails
 
